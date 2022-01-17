@@ -61,6 +61,7 @@ PS> Get-Help Get-ScriptAnalyzerRule -ShowWindow
 1. Add changes to `./CHANGELOG.md`.
 1. Change the version in `./src/wsl-vpnkit-tray.ps1` (just change the `major.minor.build` part for variable `$Version`).
 1. Push to upstream: `git add . && git commit -m "commit message" && git push origin master`.
+1. Run `$Version=(cmd /c powershell.exe .\src\wsl-vpnkit-tray.ps1 --version)` to retreive the version.
 1. Create the tag with the same version`git tag {major.minor.build}`.
 1. Push to upstream: `git push --tags origin master`.
 
