@@ -42,7 +42,28 @@ It has to be `wsl-vpnkit` (as set in the `$WslDistributionName` in `wsl-vpnkit-t
 > Otherwise, edit the file and change the variable according to your wsl2 instance name.
 
 
+
+# Development Notes
+
+### ScriptAnalyzer
+
+In order to ba able to call `build.ps1` tasks, we need first import `InvokeBuild` powershell module as follow:
+```powershell
+PS> Install-Module -name InvokeBuild -Scope CurrentUser
+PS> Invoke-Build -File ./.build.ps1 -Configuration 'Test'
+
+# Correct with PSScriptAnalyser
+PS> Get-Help Get-ScriptAnalyzerRule -ShowWindow
+```
+
+### Create a release
+
+1. Add changes to `./CHANGELOG.md`.
+1. Change the version in `./src/wsl-vpnkit-tray.ps1` (just change the `major.minor.build` part for variable `$Version`).
+1. Push to upstream: `git add . && git commit -m "commit message" && git push origin master`.
+1. Create the tag with the same version`git tag {major.minor.build}`.
+1. Push to upstream: `git push --tags origin master`.
+
 # Thanks
 
-To Sakay135 to build the wsl instance of his Cisco patch ...
-
+To Sakay135 to build the wsl instance of his path, this works with Cisco Anyconnect using F2A !!!
