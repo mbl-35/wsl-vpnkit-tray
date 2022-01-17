@@ -86,11 +86,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Extract version to create Release
-        run: echo "::set-output name=version::$( pwsh .\src\wslctl.ps1 --version )"
+        run: echo "::set-output name=version::$( pwsh .\src\wsl-vpnkit-tray.ps1 --version )"
         id: version
       - uses: actions/download-artifact@v2
-      - run: cd artifact && md5sum *wslctl* > md5sums.txt
-      - run: cd artifact && sha256sum *wslctl* > sha256sums.txt
+      - run: cd artifact && md5sum *wsl-vpnkit-tray* > md5sums.txt
+      - run: cd artifact && sha256sum *wsl-vpnkit-tray* > sha256sums.txt
       - uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"

@@ -88,8 +88,8 @@ jobs:
     needs: [ build_release ]
     steps:
       - uses: actions/download-artifact@v2
-      - run: cd artifact && md5sum *wslctl* > md5sums.txt
-      - run: cd artifact && sha256sum *wslctl* > sha256sums.txt
+      - run: cd artifact && md5sum *wsl-vpnkit-tray* > md5sums.txt
+      - run: cd artifact && sha256sum *wsl-vpnkit-tray* > sha256sums.txt
       - uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
