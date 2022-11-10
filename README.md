@@ -5,6 +5,10 @@ instance by a dedicated tray icon.
 
 ![Tray example](./docs/tray-menu.png)
 
+## Dependencies
+- dotnet-sdk 6.0.403+ on windows 11+
+
+
 ## Usage
 
 Download the latest release, unzip to a specific directory and start the wsl-vpnkit-tray.cmd to be able
