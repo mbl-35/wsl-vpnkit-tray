@@ -12,7 +12,7 @@ Add-Type -AssemblyName System.Drawing
 [System.Reflection.Assembly]::LoadWithPartialName('System.Drawing')          | Out-Null
 [System.Reflection.Assembly]::LoadWithPartialName('WindowsFormsIntegration') | Out-Null
 
-$Version="1.0.1"
+$Version="1.0.2"
 $WslDistributionName = "wsl-vpnkit"
 
 # ----------------------------------------------------
