@@ -21,13 +21,17 @@ $WslDistributionName = "wsl-vpnkit"
 
 function Convert-Base64ToIcon([String] $Base64Icon)
 {
-    $bitmap = New-Object System.Windows.Media.Imaging.BitmapImage
-    $bitmap.BeginInit()
-    $bitmap.StreamSource = [System.IO.MemoryStream][System.Convert]::FromBase64String($Base64Icon)
-    $bitmap.EndInit()
-    $bitmap.Freeze()
-    $image = [System.Drawing.Bitmap][System.Drawing.Image]::FromStream($bitmap.StreamSource)
-    return [System.Drawing.Icon]::FromHandle($image.GetHicon())
+    # $bitmap = New-Object System.Windows.Media.Imaging.BitmapImage
+    # $bitmap.BeginInit()
+    # $bitmap.StreamSource = [System.IO.MemoryStream][System.Convert]::FromBase64String($Base64Icon)
+    # $bitmap.EndInit()
+    # $bitmap.Freeze()
+    # $image = [System.Drawing.Bitmap][System.Drawing.Image]::FromStream($bitmap.StreamSource)
+    # return [System.Drawing.Icon]::FromHandle($image.GetHicon())
+    $iconBytes = [Convert]::FromBase64String($Base64Icon)
+    $stream    = [System.IO.MemoryStream]::new($iconBytes, 0, $iconBytes.Length)
+    $image     = [System.Drawing.Bitmap]::new($stream)
+    return [System.Drawing.Icon]::FromHandle($image.GetHIcon())
 }
 
 
