@@ -36,7 +36,7 @@ function Convert-Base64ToIcon([String] $Base64Icon)
 
 
 
-if ($null -ne $args[0] -AND $args[0].Trim() -eq "--version") {
+if ($args.Length -AND $args[0].Trim() -eq "--version") {
     Write-Host "$Version"
     exit 1
 
